@@ -1,0 +1,236 @@
+/*GRID*/
+.contenedor{
+    border: 5px solid #e1bee7;
+    background-color: #fff1ff;
+    /*se le da grid al contenedor*/
+    display: grid;
+    /* grid template columns quiere decir
+     cuantas columnas y que tamaño tendran en este caso hay 3 columnas
+     una de 100 px otra de 200px y otra de 300px con lo cual solo crea 3 elementos y salta a la siguiente fila si hay mas
+     estos tamaños modifican el ancho
+    */
+    grid-template-rows: 100px 200px;
+    /*
+    grid template rows modifica el tamaño del alto de las filas en este caso le estamos diciendo que hay 2 filas y una tiene de alto 150px y la otra 250px
+    */
+    /*grid-template-rows: 150px 250px;*/
+    /*grid auto rows y grid auto columns quiere decir que vamos a fijar un tamaño siempre para cualquier fila o columna que se cree
+    por lo tanto todas las filas y columnas siempre tendran estos tamaños especificos*/
+    grid-auto-columns: 100px;
+    /*
+    grid auto flow sirve para modificar como se llena la grilla por default es row o sea cuando los elementos no caben crea filas nuevas
+    y columns crea nuevas columnas en lugar de nuevas filas, tambien esta dense que lo que hace es poner elementos donde vea que hay huecos libres
+    */
+    grid-auto-flow: column;
+    /*
+    existe tambien la propiedad gap rows gap y column gap, esto sirve para que no esten juntos si no poner como un padding o un espacio entre los elementos y se define el tamaño de la brecha que se quiere tener
+    estos espacios se crean entre filas no entre filas y el inicio o el final
+    gap solo sirve para darle el mismo espacio entre filas y columnas
+    */
+    row-gap: 15px;
+    column-gap: 15px;
+    gap: 15px;
+}
+
+/*RETO*/
+.contenedor2{
+    border: 5px solid #e1bee7;
+    background-color: #fff1ff;
+    display: grid;
+    grid-template-rows: 200px 200px 200px;
+    grid-auto-columns: 200px ;
+    grid-auto-flow: column;
+    gap: 20px;
+}
+
+/*ALINEACION*/
+/*
+Propiedades para la alineación de los items (elementos):
+Justify-items
+Align-items
+Place-items
+
+Propiedades para la alineación del container(El Contenedor):
+Justify-content
+Align-content
+Place-content
+
+Propiedades para la alineación de un solo item individual
+Justify-self
+Align-self
+Place-self
+*/
+.contenedor3{
+    border: 5px solid #e1bee7;
+    background-color: #fff1ff;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 150px 150px 150px;
+    grid-auto-rows: 150px;
+    height: 600px;
+}
+
+/*RETO*/
+.contenedor4{
+    border: 5px solid #e1bee7;
+    background-color: #fff1ff;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 150px 150px;
+    grid-auto-rows: 150px;
+    height: 600px;
+    place-content: center;
+    place-items: end;
+}
+
+/*UBICACION*/
+/*
+Esto es para decirle al elemento en que columna debe comenzar y con el grid column end le decimos hasta que linea de columna va a llegar
+Propieades de ubicación (para las columnas)(columns)
+Grid-column-start
+Grid-column-end
+si ponemos grid column solamente quiere decir que le aplica el efecto a inicio y start
+Grid-column
+
+Esto es para decirle al elemento en que fila debe comenzar y con el grid row end le decimos hasta que linea de fila va a llegar
+Propieades de ubicación (para las filas (rows))
+Grid-row-start
+Grid-row-end
+si ponemos grid row solamente quiere decir que le aplica el efecto a inicio y start
+Grid-row
+
+Definimos las 4 ubicaciones donde comienza y terminan las filas y columnas
+
+Con grid area le decimos donde empieza y termina en columna y en fila todo separado por /
+grid-area
+
+tambien se puede crear grid template de areas, donde le indicamos una matriz de todos los cuadrados en el contenedor poniendoles nombre a cada cuadrado de la matriz y luego a cada item le decimos que nombre es para qeu se acomode de acuerdo a lo que hubieramos definido
+*/
+.contenedor5{
+    border: 5px solid #e1bee7;
+    background-color: #fff1ff;
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 75px 75px 75px;
+    place-content: center;
+}
+.item-1{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+    background-color: #34a940;
+    /*se le indica en cual linea empieza y en cual termina*/
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.item-2{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+    background-color: #eb1deb;
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+.item-3{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+    background-color: #1cefef;
+    /*grid area= fila en que comienza, columna en que comienza, fila en que termina, columna en que termina*/
+    grid-area: 2/2/4/4;
+}
+
+/*RETO*/
+.contenedor6{
+    border: 5px solid #e1bee7;
+    background-color: #fff1ff;
+    display: grid;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 75px 75px 75px;
+    place-content: center;
+    grid-template-areas: 
+    "primero segundo segundo"
+    "tercero tercero cuarto"
+    "quinto sexto septimo"
+    ;
+}
+.item-1{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+    background-color: #34a940;
+    grid-area: primero;
+}
+.item-2{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+    background-color: #eb1deb;
+    grid-area: segundo;
+}
+.item-3{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+    background-color: #1cefef;
+    grid-area: tercero;
+}
+.item-4{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+    background-color: #34a940;
+    grid-area: cuarto;
+}
+.item-5{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+    background-color: #eb1deb;
+    grid-area: quinto;
+}
+.item-6{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+    background-color: #1cefef;
+    grid-area: sexto;
+}
+.item-7{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+    background-color: #1cefef;
+    grid-area: septimo;
+}
+
+/*FUNCIONES ESPECIALES*/
+/*
+minmax: ayuda a declarar el tamaño minimo y maximo para el ancho y alto de una celda, sin depender del contenido que tengamos en ella
+repeat : se usa cuando todas las columnas o filas tienen el msmo ancho y evitar repetir el tamaño de las columnas
+*/
+.contenedor7{
+    border: 5px solid #e1bee7;
+    background-color: #fff1ff;
+    display: grid;
+    /*para hacer autoajustable se le da primero el valor minimo de ancho que puede tener la celda y luego el valor maximo*/
+    grid-template-columns: minmax(30px, 500px) 200px minmax(60px, 250px);
+    /*aqui le decimos que ponga 3 filas todas con el mismo tamaño y que el mismo tamaño se vaya autoajustando*/
+    grid-template-rows: repeat(3, auto)
+}
+
+/*KEYWORDS ESPECIALES*/
+/*
+fr : Es una unidad de medida especial de css grid para darle ancho o alto a filas y columnas 1fr representa una fraccion del total de columnas o filas.
+min-content : Ajusta el ancho de la celda lo mínimo posible sin romper su contenido.
+max-content : Ajusta el ancho de la celda lo máximo posible para mostrar su contenido.
+auto-fill : Agrega columnas “fantasma” que rellenan el espacio sobrante del contenedor.
+auto-fit : Ensancha las columnas para que ocupen todo el espacio del contenedor.
+auto-fill y auto-fit ayudan a la grilla a ocupar el 100% del espacio disponible.
+*/
+.contenedor8{
+    border: 5px solid #e1bee7;
+    background-color: #fff1ff;
+    display: grid;
+    /*aqui tenemos una grid que tiene 4 columnas de 1fr esto quiere decir que es una fraccion igual de tamaño para todas las columnas*/
+    /*igual podemos indicarle fila por fila cuantas fracciones va a ocupar sin usar el repeat por ejemplo 1fr 3fr 1fr 2fr*/
+    /*grid-template-columns: repeat(4, 1fr)*/
+    grid-template-columns: 1fr 3fr max-content 2fr;
+}
+
+
+.item{
+    border: 5px solid #00bcd4;
+    font-size: 4rem;
+}
+
